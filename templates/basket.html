@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block styles %} <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/basket.css') }}"> {% endblock %}
+
+{% block title %} Basket {% endblock %}
+{% block body %}  
+    
+    <div class="basket__title">
+        <h2>Your Order</h2>
+        <p>Order Name: {{name}} </p>
+    </div>
+
+
+    
+    {% for item in order %}
+
+        <div class="basket-item">
+            {{ item.replace('_',' ').replace('*','x ') }} 
+            <form method="post">
+                <input  class="btn" type="submit" name={{item}} value="Remove item">
+            </form>
+        </div>
+    {% endfor %}
+
+
+    <div class="more-btn">
+        <a class="btn" href="{{url_for('order')}}">Order More</a>
+    </div>
+
+
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer__submit-order">
+            <form method="post">
+                <input class="submit btn" type="submit" name="submitOrder" value="Submit Your Order">
+            </form>
+        </div>
+    </footer>
+
+
+
+
+
+{% endblock %}

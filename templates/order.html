@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+
+{% block styles %} <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/order.css') }}"> {% endblock %}
+
+
+
+{% block title %} Order {% endblock %}
+{% block body %}  
+
+
+    <!-- start of flash messages  -->
+    <div>
+        {% for message in get_flashed_messages() %}
+            <div class="flash">
+                <div class="flash__message">
+                    {{ message.replace('_',' ') }}
+                </div>
+                <div class="flash__btn">
+                    <button type="button" class="class" onclick="delete_flash(this)">&times;</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- end of flash messages  -->
+
+
+
+    <div class="menu-intro">
+        <h2 class="menu-intro__title">Our Menu</h2>
+        <p class="menu-intro__paragraph">Occaecat pariatur nulla sint non pariatur quis veniam consequat laborum sint enim qui. Ut irure id culpa qui adipisicing cupidatat deserunt officia.</p>
+    </div>
+
+
+    <div class="seperator box-meals">
+        <h2>- - To Share </h2>
+        <div class="container">
+    
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/banquetbox.png')}}"/>
+                <h3>Banquet Box</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="Banquet_Box" value="Add to Basket">
+                </form>
+            </div>
+        
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/largevarietybucket.png')}}"/>
+                <h3>Large Variety Bucket</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="Large_Variety_Bucket" value="Add to Basket">
+                </form>
+            </div>
+        
+        
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/12minifilletbox.png')}}"/>
+                <h3>12 Mini Fillet Box</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="12_Mini_Fillet_Box" value="Add to Basket">
+                </form>
+            </div>
+    
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/10piecefeast.png')}}"/>
+                <h3>10 Piece Feast</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="10_Piece_Feast" value="Add to Basket">
+                </form>
+            </div>
+
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/smallvarietybucket.png')}}"/>
+                <h3>Small Variety Bucket</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="Small_Variety_Bucket" value="Add to Basket">
+                </form>
+            </div>
+
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/6piecefeast.png')}}"/>
+                <h3>6 Piece Feast</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="6_Piece_Feast" value="Add to Basket">
+                </form>
+            </div>
+    
+        </div>
+        <h2>- - - - - - - -</h2>
+    </div>
+
+
+    <div class="seperator mains">
+        <h2>- - Burgers</h2>
+        <div class="container">
+    
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/thespicestack.png')}}"/>
+                <h3>The Spice Stack</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="The_Spice_Stack" value="Add to Basket">
+                </form>
+            </div>
+        
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/filletospice.png')}}"/>
+                <h3>Filet 'O Spice</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="Filet_O_Spice" value="Add to Basket">
+                </form>
+            </div>
+        
+        
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/theclassic.png')}}"/>
+                <h3>The Classic</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="The_Classic" value="Add to Basket">
+                </form>
+            </div>
+    
+            <div class="container__item">
+                <img class="container__image" src="{{ url_for('static',filename='images/thebabyfillet.png')}}"/>
+                <h3>The Baby Fillet</h3>
+                <form method="post">
+                    <input class="btn" type="submit" name="The_Baby_Fillet" value="Add to Basket">
+                </form>
+            </div>
+    
+        </div>
+        <h2>- - - - - - - -</h2>
+    </div>
+
+
+
+
+
+
+
+    <footer class="footer">
+        <div class="footer__grid">
+            <div class="footer__namebox">
+                <form method="post" class="footer__form-grid">
+                    <input type="text" name="orderName" placeholder="Enter Name" value={{orderName}}>
+                    <input type="submit" class="btn" name="submitName" value="Submit">
+                </form>
+            </div>
+            
+            <div class="footer__basket">
+                <div class="footer__basket-grid">
+                    <div class="footer__basket-items">
+                        Items in Basket: <strong>{{number}}</strong>
+                    </div>
+                    <div class="footer__basket-button">
+                        <form method="post">
+                            <input class="fb btn" type="submit" name="basket" value="View">  
+                        </form>
+                    </div>
+                    <div class="footer__basket-button">
+                        <form method="post">
+                            <input class="fb btn" type="submit" name="clear" value="Empty">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+
+
+
+{% endblock %}

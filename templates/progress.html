@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+
+{% block styles %} <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/progress.css') }}"> {% endblock %}
+
+
+{% block refresh %} <meta http-equiv="refresh" content="5"> {% endblock %}
+{% block title %} Progress {% endblock %}
+{% block body %}  
+    
+    <div class="progress-grid">
+        <div class="InTheKitchen">
+            <h2 class="title">In the Kitchen</h2>
+            {% for totalOrder in OrdersToPrepare %}
+                {% autoescape false %}
+                    <div class="id-name-wrapper">
+                        <div class="id">
+                            {{totalOrder._id}}
+                        </div>
+                        <div class="name">
+                            <p>{{totalOrder.orderName}}</p>
+                        </div>
+                    </div>
+                {% endautoescape %}
+            {% endfor %}
+        </div>
+    
+    
+        <div class="PleaseCollect">
+            <h2 class="title">Please Collect</h2>
+            {% for totalOrder in PreparedOrders %}
+                {% autoescape false %}
+                    <div class="id-name-wrapper">
+                        <div class="id2">
+                            {{totalOrder._id}}
+                        </div>
+                        <div class="name">
+                            <p>{{totalOrder.orderName}}</p>
+                        </div>
+                    </div>
+                {% endautoescape %}
+            {% endfor %}
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

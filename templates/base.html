@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/modern-normalize.css') }}">
+    <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/style.css') }}">
+
+    {% block styles %} {% endblock %}
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+    <script>
+        function delete_flash(flash){
+            $(flash).parent().parent().remove()
+        }
+    </script>
+
+    {% block refresh %} {% endblock %}
+
+    <meta charset="UTF-8" />
+    <!-- <link rel="icon" type="image/svg+xml" href=/>  -->
+    <title>{% block title %} {% endblock %}</title>
+</head>
+
+<body>
+    
+
+    <!-- start of navbar -->
+    <nav class="navbar">
+        <a class="navbar__title" href="{{url_for('order')}}">Ollie's</a>
+        <a class="navbar__link" href="{{url_for('order')}}">Order</a>
+        <a class="navbar__link" href="{{url_for('fulfilment')}}">Fulfilment</a>
+        <a class="navbar__link" href="{{url_for('progress')}}">Progress</a>
+    </nav>
+    <!-- end of navbar  -->
+
+
+    <!-- page-to-page main body  -->
+    {% block body %}{% endblock %}
+
+</body>
+
+
+
+
+
+
+</html>

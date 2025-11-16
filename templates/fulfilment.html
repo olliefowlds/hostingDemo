@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block styles %} <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/fulfilment.css') }}"> {% endblock %}
+
+{% block title %} Fulfilment {% endblock %}
+{% block body %}  
+    
+
+    <div class="fulfilment-grid">
+        <div class="OrdersToPrepare">
+            <h2 class="title">Orders to Prepare</h2>
+            
+            {% for totalOrder in OrdersToPrepare %}
+                {% autoescape false %}
+                    <div class="order">
+                        <p>Order Number: {{totalOrder._id}}</p>
+                        <p>{{totalOrder.orderName}}'s Order: <br>
+                        {{totalOrder.order.replace('_', ' ').replace('*','x ')}}
+                        </p>
+                        <form method="post">
+                            <input class="btn" type="submit" name={{totalOrder._id}} value="Order Prepared">
+                        </form>
+                    </div>
+
+                    <div class="seperator"></div>
+                {% endautoescape %}
+            {% endfor %}
+        </div>
+    
+        <div class="PreparedOrders">
+            <h2 class="title">Prepared Orders</h2>
+        
+            
+            {% for totalOrder in PreparedOrders %}
+                {% autoescape false %}
+                    <div class="order">
+                        <p>Order Number: {{totalOrder._id}}</p>
+                        <p>{{totalOrder.orderName}}'s Order: <br>
+                        {{totalOrder.order.replace('_',' ').replace('*','x ')}}
+                        </p>
+
+                        <div class="order__two-buttons">
+                            <form method="post">
+                                <input type="submit" class="btn" name={{totalOrder._id}} value="Undo">
+                            </form>
+    
+                            <form method="post">
+                                <input type="submit" class="btn" name={{totalOrder._id*-1}} value="Order Collected">
+                            </form>
+                            
+                        </div>
+                    </div>
+
+                    <div class="seperator"></div>
+                {% endautoescape %}
+            {% endfor %}
+
+
+            <div class="clear">
+                <form method="post">
+                    <input type="submit" class="clear-btn btn" name="clear" value="Clear Prepared Orders">
+                </form>
+            </div>
+        </div>
+
+
+        
+    </div>    
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

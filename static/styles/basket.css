@@ -1,0 +1,57 @@
+
+.basket__title {
+    width: fit-content;
+    background: var(--clr-tertiary);
+    color: var(--clr-secondary);
+    margin: 1rem auto;
+}
+
+
+
+
+
+
+
+
+.basket-item {
+    border: 1px solid var(--clr-primary);
+    border-radius: 5px;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    font-size: var(--size-2xl);
+    display: flex;
+    justify-content: space-between;
+}
+
+
+
+.more-btn {
+    margin: 2rem auto;
+    width: fit-content;
+}
+
+.more-btn a {
+    font-size: var(--size-2xl);
+    text-decoration: none;
+}
+
+
+
+
+
+.footer {
+    width: 100%;
+    background-color: var(--clr-tertiary);
+    bottom: 0;
+    position: fixed;
+    height: 8rem;
+}
+
+.footer__submit-order {
+    width: fit-content;
+    margin: 2rem auto;
+}
+
+.footer__submit-order input {
+    font-size: var(--size-3xl);
+}

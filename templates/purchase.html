@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block styles %} <link rel="stylesheet" type="text/css" href= "{{ url_for('static',filename='styles/purchase.css') }}"> {% endblock %}
+
+{% block title %} Purchase {% endblock %}
+{% block body %}  
+    
+    <div class="recipt">
+        <h2>Order Complete!</h2>
+        <p>Order Number: <strong>{{id}}</strong></p>
+        <p>Order Name: <strong>{{name}}</strong></p>
+        <p>Your order will be ready shortly!</p>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

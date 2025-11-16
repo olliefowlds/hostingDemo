@@ -1,0 +1,7 @@
+.recipt {
+    width: 50%;
+    background-color: var(--clr-tertiary);
+    margin: 3rem auto;
+    text-align: center;
+    padding: 2rem;
+}
